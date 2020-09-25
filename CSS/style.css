@@ -1,0 +1,68 @@
+
+/*Background */
+body{
+
+background-position: center; 
+background-color:black;
+background-repeat: no-repeat;
+height:1024px;
+margin-top:10px; background-image:url('../images/background.jpg')
+
+}
+
+
+/*NavBar Centering*/
+.center
+{
+margin:auto;
+width:800px;
+}
+
+/*NavBar*/
+#navlist{margin:0 auto; padding:0; list-style:none; position:absolute; width:800px;} 
+#navlist li{margin:0 auto; padding:0; float:left; display:block; position:absolute;}
+#navlist li, #navlist a{height:40px; display:block;}
+ 
+
+#left{left:0px;width:60px;}
+#left{background:url('../images/navbar.gif') 0 0;}
+
+
+#home{left:60px;width:100px;}
+#home{background:url('../images/navbar.gif') -60px 0;}
+#home a:hover{background: url('../images/navbar.gif') -60px -40px;}
+#home a:active {background: url('../images/navbar.gif') -60px -80px;}
+
+ 
+#livechat{left:160px;width:130px;}
+#livechat{background:url('../images/navbar.gif') -160px 0;}
+#livechat a:hover{background: url('../images/navbar.gif') -160px -40px;}
+#livechat a:active{background: url('../images/navbar.gif') -160px -80px;}
+
+
+#services{left:290px;width:125px;}
+#services{background:url('../images/navbar.gif') -290px 0;}
+#services a:hover{background: url('../images/navbar.gif') -290px -40px;}
+#services a:active{background: url('../images/navbar.gif') -290px -80px;}
+ 
+
+#order{left:415px;width:92px;}
+#order{background:url('../images/navbar.gif') -415px 0;}
+#order a:hover{background: url('../images/navbar.gif') -415px -40px;}
+#order a:active{background: url('../images/navbar.gif') -415px -80px;}
+
+
+#privacy{left:507px;width:112px;}
+#privacy{background:url('../images/navbar.gif') -507px 0;}
+#privacy a:hover{background: url('../images/navbar.gif') -507px -40px;}
+#privacy a:active{background: url('../images/navbar.gif') -507px -80px;}
+
+ 
+#contact{left:619px;width:121px;}
+#contact{background:url('../images/navbar.gif') -619px 0;}
+#contact a:hover{background: url('../images/navbar.gif') -619px -40px;}
+#contact a:active{background: url('../images/navbar.gif') -619px -80px;}
+
+
+#right{left:740px;width:60px;}
+#right{background:url('../images/navbar.gif') -740px 0;}

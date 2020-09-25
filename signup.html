@@ -1,0 +1,299 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="/CSS/style.css" />
+
+
+<meta http-equiv="Content-Type" content="text/html; charset=windows-1252"/>
+
+
+<!--This is a comment. Comments are not displayed in the browser-->
+
+<script type="text/javascript">
+
+
+function validateForm()
+{
+var fname=document.forms["myForm"]["FirstName"].value
+var lname=document.forms["myForm"]["LastName"].value
+var hphone=document.forms["myForm"]["HomePhone"].value
+var cphone=document.forms["myForm"]["CellPhone"].value
+var ccnum=document.forms["myForm"]["CCNumber"].value
+var expmo=document.forms["myForm"]["ExpirationDateMonth"].value
+var expyear=document.forms["myForm"]["ExpirationDateYear"].value
+var scode=document.forms["myForm"]["SecurityCode"].value
+var bzcode=document.forms["myForm"]["BillingZipCode"].value
+
+var em=document.forms["myForm"]["EMail"].value
+var atpos=em.indexOf("@");
+var dotpos=em.lastIndexOf(".");
+
+var iChars = "!@#$%^&*()+=-[]\\\;,./{}|\":<>?1234567890";
+var AddressChars = "!@#$%^&*()+=-[]\\\;,/{}|\":<>?";
+var NumOnlyChars = "!@#$%^&*()+=-[]\\\;,/{}|\":<>? abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+
+//Email error Start
+
+if(em.length>0)
+{
+if (atpos<1 || dotpos<atpos+2 || dotpos+2>=em.length)
+  {
+  document.getElementById("EMailError").innerHTML="* Enter valid Email Address";
+  return false;
+  }
+}
+//EMail error End
+
+
+//If Blank Start
+if (fname==null || fname=="")
+  {
+  document.getElementById("fnError").innerHTML="* Enter your First Name";
+  return false;
+  }
+
+if (lname==null || lname=="")
+  {
+  document.getElementById("lnError").innerHTML="* Enter your Last Name";
+  return false;
+  }
+  
+//If Blank End
+
+//Number Count Start
+
+if ((hphone.length>0) && (hphone.length<10))
+{ 
+  document.getElementById("hphoneError").innerHTML="* Enter 10 digits";
+  return false;
+}
+
+if ((cphone.length>0) && (cphone.length<10))
+{ 
+  document.getElementById("cphoneError").innerHTML="* Enter 10 digits";
+  return false;
+}
+
+if ((ccnum.length>0) && (ccnum.length<16))
+{ 
+  document.getElementById("ccnumError").innerHTML="* Enter 16 digits";
+  return false;
+}
+
+
+if ((expmo.length>0) && (expmo.length<2))
+{ 
+  document.getElementById("ExpirationError").innerHTML="* Enter a 2 digit month";
+  return false;
+}
+
+if ((expyear.length>0) && (expyear.length<2))
+{ 
+  document.getElementById("ExpirationError").innerHTML="* Enter a 2 digit year";
+  return false;
+}
+
+if ((bzcode.length>0) && (bzcode.length<5))
+{ 
+  document.getElementById("bzError").innerHTML="* Minimum 5 digits";
+  return false;
+}
+//Number Count End
+
+
+//Special Characters start
+
+
+for (var i = 0; i < document.forms["myForm"]["FirstName"].value.length;i++) {
+ 	if (iChars.indexOf(document.forms["myForm"]["FirstName"].value.charAt(i)) != -1) {
+  	document.getElementById("fnError").innerHTML="* Letters Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["LastName"].value.length;i++) {
+  	if (iChars.indexOf(document.forms["myForm"]["LastName"].value.charAt(i)) != -1) {
+  	document.getElementById("lnError").innerHTML="* Letters Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["HomePhone"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["HomePhone"].value.charAt(i)) != -1) {
+  	document.getElementById("hphoneError").innerHTML="* Numbers Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["CellPhone"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["CellPhone"].value.charAt(i)) != -1) {
+  	document.getElementById("cphoneError").innerHTML="* Numbers Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["CCNumber"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["CCNumber"].value.charAt(i)) != -1) {
+  	document.getElementById("ccnumError").innerHTML="* Numbers Only";
+  	return false;
+  	}
+}
+
+
+for (var i = 0; i < document.forms["myForm"]["ExpirationDateMonth"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["ExpirationDateMonth"].value.charAt(i)) != -1) {
+  	document.getElementById("ExpirationError").innerHTML="* Enter a valid month";
+  	return false;
+  	}
+}
+
+
+for (var i = 0; i < document.forms["myForm"]["ExpirationDateYear"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["ExpirationDateYear"].value.charAt(i)) != -1) {
+  	document.getElementById("ExpirationError").innerHTML="* Enter a valid year";
+  	return false;
+  	}
+}
+
+
+for (var i = 0; i < document.forms["myForm"]["SecurityCode"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["SecurityCode"].value.charAt(i)) != -1) {
+  	document.getElementById("scodeError").innerHTML="* Numbers Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["BillingAddress"].value.length;i++) {
+  	if (AddressChars.indexOf(document.forms["myForm"]["BillingAddress"].value.charAt(i)) != -1) {
+  	document.getElementById("BaddError").innerHTML="* No Special characters";
+  	return false;
+  	}
+}
+
+
+for (var i = 0; i < document.forms["myForm"]["BillingCity"].value.length;i++) {
+  	if (iChars.indexOf(document.forms["myForm"]["BillingCity"].value.charAt(i)) != -1) {
+  	document.getElementById("bcError").innerHTML="* Letters Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["BillingState"].value.length;i++) {
+  	if (iChars.indexOf(document.forms["myForm"]["BillingState"].value.charAt(i)) != -1) {
+  	document.getElementById("bsError").innerHTML="* Letters Only";
+  	return false;
+  	}
+}
+
+for (var i = 0; i < document.forms["myForm"]["BillingZipCode"].value.length;i++) {
+  	if (NumOnlyChars.indexOf(document.forms["myForm"]["BillingZipCode"].value.charAt(i)) != -1) {
+  	document.getElementById("bzError").innerHTML="* Numbers Only";
+  	return false;
+  	}
+}
+//Special Characters end
+
+}
+
+
+
+
+
+     
+
+
+function resetErrors(){
+  document.getElementById('EMailError').innerHTML = ' ';
+  document.getElementById('fnError').innerHTML = ' ';
+  document.getElementById('lnError').innerHTML = ' ';
+  document.getElementById('hphoneError').innerHTML = ' ';
+  document.getElementById('cphoneError').innerHTML = ' ';
+  document.getElementById('ccnumError').innerHTML = ' ';
+  document.getElementById('ExpirationError').innerHTML = ' ';
+  document.getElementById('scodeError').innerHTML = ' ';
+  document.getElementById('BaddError').innerHTML = ' ';
+  document.getElementById('bcError').innerHTML = ' ';
+  document.getElementById('bsError').innerHTML = ' ';
+  document.getElementById('bzError').innerHTML = ' ';
+  return false;
+}
+
+
+
+
+
+</script>
+
+
+</head>
+
+<body>
+
+<div class="center">
+</br>
+</br>
+<a href="">
+<CENTER><img src="/images/newlogo.gif" border="0" style="display:block;" alt="logo" /></CENTER>
+</br>
+<CENTER><img src="/images/bump.gif" border="0" style="display:block;" alt="bump" /></CENTER>
+</a>
+
+<ul id="navlist">
+<li id="left"></li>
+<li id="home"><a href="index.html" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="livechat"><a href="livechat/chat.php" target="_blank" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="services"><a href="services.html" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="order"><a href="agreement.html" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="privacy"><a href="privacy.html" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="contact"><a href="contact.html" onFocus="if(this.blur)this.blur()"></a></li>
+<li id="right"></li></ul>
+</div>
+
+<p>&nbsp;</p>
+
+<form name="myForm" action="/Scripting-db-bin/PHP/phpinsert.php" onsubmit="return validateForm()" method=post >
+
+
+<table width="800" align=center>
+
+<tr><td width="200" >&nbsp;</td><td colspan="2" rowspan="2" align=center style="background-color:#CCCCCC; font-size:20;font-family:arial; border:2px solid black;" width="400" ><b>New Order Form</b></td><td width="200">&nbsp;</td></tr>
+
+<tr><td width="200">&nbsp;</td><td width="200">&nbsp;</td></tr>
+
+<tr><td width="200">&nbsp;</td><td width="200">&nbsp;</td><td width="200">&nbsp;</td><td width="200" >&nbsp;</td></tr>
+
+<tr><td width="200"></td><td align=right width="200">E-Mail:</td><td align=left width="200"><input type = "text" name="EMail" size="25" maxlength="34" /></td><td id="EMailError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">First Name:</td><td align=left width="200"><input type="text" name="FirstName" size="25" maxlength="34" /></td><td id="fnError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Last Name:</td><td align=left width="200"><input type="text" name="LastName" size="25" maxlength="34" /></td><td id="lnError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Home Phone:</td><td align=left width="200"><input type = "text" name="HomePhone" size="10" maxlength="10" /></td><td id="hphoneError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Cell Phone:</td><td align=left width="200"><input type = "text" name="CellPhone" size="10" maxlength="10" /></td><td id="cphoneError" width="200" align=left style="color:red;"></td></tr>
+
+<tr><td width="200"></td><td align=right width="200"></td><td align=left width="200"><img src="" /></td><td width="200" ></td></tr>
+
+<tr><td width="200"></td><td align=right height="25" width="200">Card Type:</td><td align=left  height="25" width="200"><select name="CardType"><option>Choose One</option><option>Visa</option><option>MasterCard</option><option>American Express</option><option>Discover</option></select></td><td width="200"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Credit Card Number:</td><td align=left width="200"><input type = "text" name="CCNumber" size="16" maxlength="16"/></td><td id="ccnumError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Expiration Date: </td><td align=left width="200"><input type = "text" name="ExpirationDateMonth" size="2" maxlength="2" value="mm" style="color:gray" onblur="if(this.value == '') { this.value='mm'; this.style.color='gray';}" onfocus="if (this.value == 'mm') {this.value=''}" onclick="this.style.color='black'" />&nbsp;<input type = "text" name="ExpirationDateYear" size="2" maxlength="2" value="yy" style="color:gray" onblur="if(this.value == '') { this.value='yy'; this.style.color='gray';}" onfocus="if (this.value == 'yy') {this.value=''}" onclick="this.style.color='black'" /></td><td id="ExpirationError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Security Code: </td><td align=left width="200"><input type = "text" name="SecurityCode" size="3" maxlength="4" /></td><td id="scodeError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Billing Address: </td><td align=left width="200"><input type = "text" name="BillingAddress" size="25" maxlength="34" style="color:black" /></td><td id="BaddError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Billing City: </td><td align=left width="200"><input type = "text" name="BillingCity" size="25" maxlength="34" /></td><td id="bcError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Billing State: </td><td align=left width="200"><input type = "text" name="BillingState" size="14" maxlength="14" /></td><td id="bsError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td align=right width="200">Billing Zip Code: </td><td align=left width="200"><input type = "text" name="BillingZipCode" size="5" maxlength="5" /></td><td id="bzError" width="200" align=left style="color:red;"></td></tr>
+<tr><td width="200"></td><td width="200"></td><td width="200"></td><td width="200"></td></tr>
+<tr><td height="32" width="200" ></td><td height="32"></td><td align=left height="32" width="200" ><input type="submit" onclick="resetErrors()" value="Submit" /></td><td height="32" width="200" ></td></tr>
+<tr><td width="200"></td><td width="200" ></td><td width="200" ></td><td width="200" ></td></tr>
+
+</table>
+
+</form>
+
+
+
+
+<br />
+
+<body />
+<html />

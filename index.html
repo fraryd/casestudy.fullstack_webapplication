@@ -1,0 +1,22 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+</head>
+<body>
+ <script type='text/javascript' data-cfasync='false'>
+window.purechatApi = { l: [], t: [], on: function () { this.l.push(arguments); 
+} }; 
+(function () { 
+var done = false; 
+var script = document.createElement('script'); 
+script.async = true; 
+script.type = 'text/javascript'; 
+script.src = 'https://app.purechat.com/VisitorWidget/'; 
+document.getElementsByTagName('HEAD').item(0).appendChild(script); 
+script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({c: '7e8fa1a7-83de-40e2-a5fd-3c51222f20d6', f: true }); 
+done = true; 
+} };
+})();
+</script>
+</body>
+</html>
